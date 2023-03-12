@@ -1,5 +1,7 @@
 import subprocess
-subprocess.call(['pip', 'install', '-r', 'requirement.txt', -u])
+subprocess.call(['pip', 'uninstall', '-r', 'requirement.txt'])
+subprocess.call(['pip', 'install', '-r', 'requirement.txt'])
+
 import streamlit as st
 import pandas as pd
 import gzip
