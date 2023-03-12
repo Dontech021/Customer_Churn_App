@@ -1,4 +1,3 @@
-pip install requirement.txt
 import streamlit as st
 import pandas as pd
 import dill
