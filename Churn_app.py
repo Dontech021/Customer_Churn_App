@@ -2,7 +2,7 @@ import subprocess
 subprocess.call(['pip', 'install', '-r', 'requirement.txt'])
 import streamlit as st
 import pandas as pd
-import dill
+import joblib
 import gzip
 import numpy as np
 
