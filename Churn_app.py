@@ -1,8 +1,7 @@
-import subprocess
-subprocess.call(['pip', 'install', '-r', 'requirement.txt'])
+
 import streamlit as st
 import pandas as pd
-import joblib
+import sklearn
 import gzip
 import numpy as np
 
