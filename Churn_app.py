@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+import gzip
+import dill
 import numpy as np
 
 st.write("""
@@ -28,29 +30,21 @@ def user_input_features():
 
 df=user_input_features()
 
+
+with gzip.open('churn_model.dill.gz', 'rb') as f:
+    model =dill.load(f)
+
+with gzip.open('rescale.dill.gz', 'rb') as f:
+    scale =dill.load(f)
+
 st.subheader('Predicted Parameters')
 st.write(df)
     
-customers_data = pd.read_csv('customer_churn.csv')
-from sklearn.preprocessing import MinMaxScaler
 
-scaler = MinMaxScaler(feature_range=(0, 1))
 
-# Scale only the input data
-input_data = customers_data[['Age','Total_Purchase','Account_Manager', 'Years', 'Num_Sites']].to_numpy()
-data_scaled = scaler.fit_transform(input_data)
-data_scaled_df = pd.DataFrame (data_scaled, columns = ['Age','Total_Purchase','Account_Manager', 'Years', 'Num_Sites'])
-
-X = data_scaled_df
-y = customers_data['Churn']
-
-from sklearn.ensemble import AdaBoostClassifier
-ada_model = AdaBoostClassifier(n_estimators=100,random_state=0)   # n_estimators=100, max_depth=10, random_state = 0)
-ada_model.fit(X, y)
-
-u_value=scaler.transform(df)
-pred= ada_model.predict(u_value)
-pred_prob= ada_model.predict_proba(u_value)
+u_value=scale.transform(df)
+pred= model.predict(u_value)
+pred_prob= model.predict_proba(u_value)
 
 st.subheader('Probability Display')
 st.write(pd.DataFrame({'won\'t churn':pred_prob[0][0],'churn':pred_prob[0][1]},index=['probability']))
