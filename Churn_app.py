@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
-import joblib
+import dill
+import gzip
 import numpy as np
 
 st.write("""
