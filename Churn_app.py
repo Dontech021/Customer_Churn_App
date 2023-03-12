@@ -1,5 +1,4 @@
 import subprocess
-subprocess.call(['pip', 'uninstall', '-r', 'requirement.txt'])
 subprocess.call(['pip', 'install', '-r', 'requirement.txt'])
 
 import streamlit as st
