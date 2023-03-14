@@ -1,9 +1,9 @@
 import subprocess
+import streamlit as st
 
-subprocess.call(['pip', 'install', '-r','streamlit', 'requirement.txt'])
+subprocess.call(['pip', 'install', '-r','st', 'requirement.txt'])
 subprocess.call(['pip', 'show', 'dill'])
 import dill
-import streamlit as st
 import pandas as pd
 
 st.write("""
