@@ -8,7 +8,7 @@ name = 'main'
 subprocess.call(['pip', 'install', '-r', 'requirement.txt'])
 
 # Change the current working directory to the desired location
-os.chdir('/path/to/desired/directory')
+os.chdir('/home/appuser/.local/lib/python3.9/site-packages')
 
 # Define your Streamlit app code
 def main():
