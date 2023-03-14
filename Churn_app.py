@@ -1,5 +1,6 @@
-
-
+subprocess.call(['pip', 'install', '-r', 'requirement.txt'])
+subprocess.call(['pip', 'show', 'dill')
+import dill
 import streamlit as st
 import pandas as pd
 
