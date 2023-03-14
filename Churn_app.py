@@ -2,7 +2,7 @@ import os
 import sys
 import subprocess
 import streamlit as st
-name == 'main'
+name = 'main'
 # Change the current working directory to the desired location
 os.chdir('/home/appuser/.local/lib/python3.9/site-packages')
 
