@@ -1,8 +1,10 @@
 import subprocess
 import streamlit as st
 
-subprocess.call(['pip', 'install', '-r','st', 'requirement.txt'])
-subprocess.call(['pip', 'show', 'dill'])
+subprocess.call(['source','path/to/venv/bin/activate'])
+subprocess.call(['pip', 'install', 'joblib'])
+subprocess.call(['pip', 'list'])
+
 import dill
 import pandas as pd
 
