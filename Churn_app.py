@@ -14,7 +14,7 @@ import numpy as np
 
 st.write("""
 # Churn Prediction App
-click the **<** on the left hand corner and choose your parameters from the sidebar that appears to know if customer will **churn**
+click "**<**" on the left hand corner and choose your parameters from the sidebar that appears to know if customer will **churn**
 """)
 
 
