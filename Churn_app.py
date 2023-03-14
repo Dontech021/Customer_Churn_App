@@ -1,4 +1,6 @@
-!/path/to/python
+
+subprocess.call(!/path/to/python)
+
 import subprocess
 subprocess.call(['python', '--version'])
 subprocess.call(['python', '-c', '\"import joblib; print(joblib.file)\"'])
