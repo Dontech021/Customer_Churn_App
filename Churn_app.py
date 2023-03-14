@@ -9,7 +9,7 @@ import pandas as pd
 import gzip
 import dill
 import numpy as np
-with gzip.open('rescale.dill.gz', 'rb') as f:
+with gzip.open('app/customer_churn_app/rescale.dill.gz'  , 'rb') as f:
     scale =dill.load(f)
 
 st.write("""
