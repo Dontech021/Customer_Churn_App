@@ -1,20 +1,21 @@
 import os
 import streamlit as st
-
+import subprocess
+import streamlit as st
+import dill
+import pandas as pd
 # Change the current working directory to the desired location
 os.chdir('/home/appuser/.local/lib/python3.9/site-packages')
 
 # Define your Streamlit app code
 def main(
 
-    import subprocess
-    import streamlit as st
+    
 
     subprocess.call(['pip', 'install', 'joblib'])
     subprocess.call(['pip', 'list'])
 
-    import dill
-    import pandas as pd
+   
 
     st.write("""
     # Churn Prediction App
