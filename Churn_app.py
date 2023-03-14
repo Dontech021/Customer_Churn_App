@@ -2,7 +2,7 @@ import os
 import sys
 sys.path
 # Change the current working directory to the desired location
-os.system('pip install dill --target==/home/appuser/venv/lib/python3.9/site-packages')
+os.system('pip install -r requirement.txt --target==/home/appuser/venv/lib/python3.9/site-packages')
 
 import streamlit as st
 import pandas as pd
