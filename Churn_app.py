@@ -1,6 +1,18 @@
 import os
 import sys
 import subprocess
+import subprocess
+import os
+
+filename = "example.txt"
+result = subprocess.run(['find', '.', '-name', filename], stdout=subprocess.PIPE)
+
+if result.returncode == 0:
+    filepath = result.stdout.decode().strip()
+    print("The file is located at: ", filepath)
+else:
+    print("Error: File not found")
+
 subprocess.call(
     with gzip.open('rescale.dill.gz', 'rb') as f:
         scale =dill.load(f))
