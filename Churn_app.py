@@ -1,6 +1,5 @@
 import subprocess
-python --version
-subprocess.call(['pip', 'install', '-r', 'requirement.txt'])
+subprocess.call(['python', '--version'])
 
 import streamlit as st
 import pandas as pd
