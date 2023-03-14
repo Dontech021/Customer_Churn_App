@@ -12,7 +12,7 @@ os.chdir('/path/to/desired/directory')
 
 # Define your Streamlit app code
 def main():
-  import streamlit as st
+import streamlit as st
 import pandas as pd
 import gzip
 import dill
