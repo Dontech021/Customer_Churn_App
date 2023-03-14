@@ -1,7 +1,5 @@
-import subprocess 
-import sys
-sys path
-subprocess.call(['pip', 'install', '-r', 'requirement.txt'])
+
+subprocess.call(['pip', 'install', '-r','streamlit', 'requirement.txt'])
 subprocess.call(['pip', 'show', 'dill'])
 import dill
 import streamlit as st
