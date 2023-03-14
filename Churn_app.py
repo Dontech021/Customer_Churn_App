@@ -6,3 +6,4 @@ subprocess.call(['pwd'])
 name = 'main'
 
 subprocess.call(['pip', 'install', '-r', 'requirement.txt'])
+sys.path
