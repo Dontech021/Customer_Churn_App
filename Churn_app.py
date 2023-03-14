@@ -1,14 +1,7 @@
 
 
-import subprocess
-subprocess.call('python --version')
-subprocess.call(['python', '-c', '\"import joblib; print(joblib.file)\"'])
-
 import streamlit as st
 import pandas as pd
-import gzip
-import dill
-import numpy as np
 
 st.write("""
 # Churn Prediction App
@@ -35,27 +28,4 @@ def user_input_features():
     return feature
 
 df=user_input_features()
-
-
-with gzip.open('churn_model.dill.gz', 'rb') as f:
-    model =dill.load(f)
-
-with gzip.open('rescale.dill.gz', 'rb') as f:
-    scale =dill.load(f)
-
-st.subheader('Predicted Parameters')
-st.write(df)
-    
-
-
-u_value=scale.transform(df)
-pred= model.predict(u_value)
-pred_prob= model.predict_proba(u_value)
-
-st.subheader('Probability Display')
-st.write(pd.DataFrame({'won\'t churn':pred_prob[0][0],'churn':pred_prob[0][1]},index=['probability']))
-
-classes={0:'won\'t churn',1:'churn'}
-st.subheader('Predicted Action')
-st.write('**{}**'.format(classes[pred[0]]))
 
