@@ -1,4 +1,5 @@
 import subprocess
+python --version
 subprocess.call(['pip', 'install', '-r', 'requirement.txt'])
 
 import streamlit as st
