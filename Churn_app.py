@@ -12,16 +12,16 @@ os.chdir('/path/to/desired/directory')
 
 # Define your Streamlit app code
 def main():
-import streamlit as st
-import pandas as pd
-import gzip
-import dill
-import numpy as np
+    import streamlit as st
+    import pandas as pd
+    import gzip
+    import dill
+    import numpy as np
 
-st.write("""
-# Churn Prediction App
-choose your parameters from the sidebar and know if customer will **churn**
-""")
+    st.write("""
+    # Churn Prediction App
+    choose your parameters from the sidebar and know if customer will **churn**
+    """)
 
 
     st.sidebar.header('User Input Parameters ')
