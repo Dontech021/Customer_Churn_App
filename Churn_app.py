@@ -13,9 +13,7 @@ if result.returncode == 0:
 else:
     print("Error: File not found")
 
-subprocess.call(
-    with gzip.open('rescale.dill.gz', 'rb') as f:
-        scale =dill.load(f))
+
 # Change the current working directory to the desired location
 os.system('pip install dill --target==/home/appuser/venv/lib/python3.9/site-packages')
 
