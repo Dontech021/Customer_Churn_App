@@ -1,3 +1,4 @@
+import subprocess
 
 subprocess.call(['pip', 'install', '-r','streamlit', 'requirement.txt'])
 subprocess.call(['pip', 'show', 'dill'])
