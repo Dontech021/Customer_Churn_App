@@ -1,6 +1,8 @@
 import subprocess
 subprocess.call(['python', '--version'])
+subprocess.call(['python -c \"import joblib; print(joblib.file)\"'])
 
+python -c "import joblib; print(joblib.file)"
 import streamlit as st
 import pandas as pd
 import gzip
