@@ -1,7 +1,6 @@
 import subprocess
 import streamlit as st
 
-subprocess.call(['source','path/to/venv/bin/activate'])
 subprocess.call(['pip', 'install', 'joblib'])
 subprocess.call(['pip', 'list'])
 
