@@ -11,6 +11,7 @@ def main():
     import subprocess
     import streamlit as st
     import dill
+    import gzip
     import pandas as pd
     subprocess.call(['pip', 'install', 'joblib'])
     subprocess.call(['pip', 'list'])
