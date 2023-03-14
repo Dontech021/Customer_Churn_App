@@ -1,5 +1,6 @@
 import subprocess 
-
+import sys
+sys path
 subprocess.call(['pip', 'install', '-r', 'requirement.txt'])
 subprocess.call(['pip', 'show', 'dill'])
 import dill
