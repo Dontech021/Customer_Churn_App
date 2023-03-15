@@ -1,5 +1,3 @@
-subprocess.call(['pip', 'install', '-r', 'requirement.txt', '--target=/home/appuser/venv/lib/python3.9/site-packages'])
-
 import os
 import sys
 import subprocess
@@ -9,6 +7,7 @@ import gzip
 import dill
 import numpy as np
 
+subprocess.call(['pip', 'install', '-r', 'requirement.txt', '--target=/home/appuser/venv/lib/python3.9/site-packages'])
 
 st.write("""
 # Churn Prediction App
