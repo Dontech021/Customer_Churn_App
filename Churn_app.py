@@ -48,16 +48,21 @@ with gzip.open('rescale.dill.gz', 'rb') as f:
 st.subheader('Predicted Parameters')
 st.write(df)
     
-
-
-u_value=scale.transform(df)
-pred= model.predict(u_value)
-pred_prob= model.predict_proba(u_value)
-
 st.subheader('Probability Display')
 st.write(pd.DataFrame({'won\'t churn':pred_prob[0][0],'will churn':pred_prob[0][1]},index=['probability']))
 
-classes={0:'won\'t churn',1:'will churn'}
-st.subheader('Predicted Action')
-st.write('**{}**'.format(classes[pred[0]]))
+# Create a button
+button_clicked = st.button("Predict")
+
+# Check if the button is clicked
+if button_clicked:
+
+    u_value=scale.transform(df)
+    pred= model.predict(u_value)
+    pred_prob= model.predict_proba(u_value)
+
+
+    classes={0:'won\'t churn',1:'will churn'}
+    st.subheader('Predicted Action')
+    st.write('**{}**'.format(classes[pred[0]]))
 
