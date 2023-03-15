@@ -62,10 +62,4 @@ if button_clicked:
     st.subheader('Predicted Action')
     st.write('**{}**'.format(classes[pred[0]]))
 
-    st.subheader('Probability Display')
-    st.write(pd.DataFrame({'won\'t churn':pred_prob[0][0],'churn':pred_prob[0][1]},index=['probability']))
-
-    classes={0:'won\'t churn',1:'churn'}
-    st.subheader('Predicted Action')
-    st.write('**{}**'.format(classes[pred[0]]))
-
+    
