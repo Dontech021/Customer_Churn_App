@@ -61,5 +61,5 @@ if button_clicked:
     st.subheader('Predicted Action')
     st.write('**{}**'.format(classes[pred[0]]))
 
-a='Previous result'
+
 
