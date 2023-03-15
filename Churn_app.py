@@ -45,10 +45,9 @@ st.write(df)
 
 
 # Check if the button is clicked
-button_clicked==False
+button_clicked=False
 # Create a button
 button_clicked = st.button("Predict")
-
 # Check if the button is clicked
 if button_clicked:
     st.write("Button clicked!")
