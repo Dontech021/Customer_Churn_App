@@ -43,24 +43,25 @@ with gzip.open('rescale.dill.gz', 'rb') as f:
 st.subheader('Prediction Parameters')
 st.write(df)
 
-
-# Check if the button is clicked
+try:
+    st.write('Previous result', pd.DataFrame({'won\'t churn':pred_prob[0][0],'churn':pred_prob[0][1]},index=['probability']))
+    
 button_clicked=False
 # Create a button
 button_clicked = st.button("Predict")
 # Check if the button is clicked
 if button_clicked:
-    st.write("Button clicked!")
+    
+u_value=scale.transform(df)
+pred= model.predict(u_value)
+pred_prob= model.predict_proba(u_value)
 
-    u_value=scale.transform(df)
-    pred= model.predict(u_value)
-    pred_prob= model.predict_proba(u_value)
+st.subheader('Probability Display')
+st.write(pd.DataFrame({'won\'t churn':pred_prob[0][0],'churn':pred_prob[0][1]},index=['probability']))
 
-    st.subheader('Probability Display')
-    st.write(pd.DataFrame({'won\'t churn':pred_prob[0][0],'churn':pred_prob[0][1]},index=['probability']))
+classes={0:'won\'t churn',1:'churn'}
+st.subheader('Predicted Action')
+st.write('**{}**'.format(classes[pred[0]]))
 
-    classes={0:'won\'t churn',1:'churn'}
-    st.subheader('Predicted Action')
-    st.write('**{}**'.format(classes[pred[0]]))
 
 
