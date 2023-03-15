@@ -1,16 +1,14 @@
+subprocess.call(['pip', 'install', '-r', 'requirement.txt', '--target=/home/appuser/venv/lib/python3.9/site-packages'])
+
 import os
 import sys
 import subprocess
-import streamlit as st
-p=subprocess.call(['pwd'])
-name = 'main'
-
-subprocess.call(['pip', 'install', '-r', 'requirement.txt', '--target=/home/appuser/venv/lib/python3.9/site-packages'])
 import streamlit as st
 import pandas as pd
 import gzip
 import dill
 import numpy as np
+
 
 st.write("""
 # Churn Prediction App
@@ -45,7 +43,7 @@ with gzip.open('churn_model.dill.gz', 'rb') as f:
 with gzip.open('rescale.dill.gz', 'rb') as f:
     scale =dill.load(f)
 
-st.subheader('Predicted Parameters')
+st.subheader('Prediction Parameters')
 st.write(df)
 
 # Create a button
@@ -58,11 +56,11 @@ if button_clicked:
     pred= model.predict(u_value)
     pred_prob= model.predict_proba(u_value)
 
-    
-st.subheader('Probability Display')
-st.write(pd.DataFrame({'won\'t churn':pred_prob[0][0],'will churn':pred_prob[0][1]},index=['probability']))
 
-classes={0:'won\'t churn',1:'will churn'}
-st.subheader('Predicted Action')
-st.write('**{}**'.format(classes[pred[0]]))
+    st.subheader('Probability Display')
+    st.write(pd.DataFrame({'won\'t churn':pred_prob[0][0],'will churn':pred_prob[0][1]},index=['probability']))
+
+    classes={0:'won\'t churn',1:'will churn'}
+    st.subheader('Predicted Action')
+    st.write('**{}**'.format(classes[pred[0]]))
 
