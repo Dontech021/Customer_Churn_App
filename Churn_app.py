@@ -1,20 +1,17 @@
+
 import os
 import sys
 import subprocess
-import streamlit as st
-p=subprocess.call(['pwd'])
-name = 'main'
-
-subprocess.call(['pip', 'install', '-r', 'requirement.txt', '--target=/home/appuser/venv/lib/python3.9/site-packages'])
 import streamlit as st
 import pandas as pd
 import gzip
 import dill
 import numpy as np
 
+
 st.write("""
 # Churn Prediction App
-choose your parameters from the sidebar and know if customer will **churn**
+click "**> button**" on the left hand corner and choose your parameters from the sidebar that appears to know if customer will **churn**
 """)
 
 
@@ -38,26 +35,30 @@ def user_input_features():
 
 df=user_input_features()
 
-
 with gzip.open('churn_model.dill.gz', 'rb') as f:
     model =dill.load(f)
 
 with gzip.open('rescale.dill.gz', 'rb') as f:
     scale =dill.load(f)
 
-st.subheader('Predicted Parameters')
+st.subheader('Prediction Parameters')
 st.write(df)
+
+st.write('click the predict button below to make prediction')
+button_clicked=False
+# Create a button
+button_clicked = st.button("Predict")
+# Check if the button is clicked
+if button_clicked:
     
+    u_value=scale.transform(df)
+    pred= model.predict(u_value)
+    pred_prob= model.predict_proba(u_value)
 
+    st.subheader('Probability Display')
+    st.write(pd.DataFrame({'won\'t churn':pred_prob[0][0],'churn':pred_prob[0][1]},index=['probability']))
 
-u_value=scale.transform(df)
-pred= model.predict(u_value)
-pred_prob= model.predict_proba(u_value)
-
-st.subheader('Probability Display')
-st.write(pd.DataFrame({'won\'t churn':pred_prob[0][0],'churn':pred_prob[0][1]},index=['probability']))
-
-classes={0:'won\'t churn',1:'churn'}
-st.subheader('Predicted Action')
-st.write('**{}**'.format(classes[pred[0]]))
+    classes={0:'won\'t churn',1:'churn'}
+    st.subheader('Predicted Action')
+    st.write('**{}**'.format(classes[pred[0]]))
 
