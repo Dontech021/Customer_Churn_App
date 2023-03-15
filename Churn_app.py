@@ -44,9 +44,6 @@ st.subheader('Prediction Parameters')
 st.write(df)
 
 
-# Create a button
-button_clicked = st.button("Predict")
-
 # Check if the button is clicked
 button_clicked==False
 
