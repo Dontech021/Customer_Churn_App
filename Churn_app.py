@@ -44,9 +44,8 @@ st.subheader('Prediction Parameters')
 st.write(df)
 
 try:
-    st.write( pd.DataFrame({'won\'t churn':pred_prob[0][0],'churn':pred_prob[0][1]},index=['probability']))
     st.write('Previous result')
-
+    st.write( pd.DataFrame({'won\'t churn':pred_prob[0][0],'churn':pred_prob[0][1]},index=['probability']))
 except:
     st.write('click the predict button below to make prediction')
 button_clicked=False
