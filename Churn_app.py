@@ -34,3 +34,9 @@ def user_input_features():
 
 df=user_input_features()
 
+with gzip.open('churn_model.dill.gz', 'rb') as f:
+    model =dill.load(f)
+
+with gzip.open('rescale.dill.gz', 'rb') as f:
+    scale =dill.load(f)
+
