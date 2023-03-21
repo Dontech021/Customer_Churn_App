@@ -2,13 +2,14 @@
 import os
 import sys
 import subprocess
+subprocess.call(['pip', 'install', '-r', 'requirement.txt', '--target=/home/appuser/venv/lib/python3.9/site-packages'])
+
 import streamlit as st
 import pandas as pd
 import gzip
 import dill
 import numpy as np
 
-subprocess.call(['pip', 'install', '-r', 'requirement.txt', '--target=/home/appuser/venv/lib/python3.9/site-packages'])
 
 st.write("""
 # Churn Prediction App
