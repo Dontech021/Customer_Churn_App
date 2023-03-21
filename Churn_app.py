@@ -8,7 +8,7 @@ import gzip
 import dill
 import numpy as np
 
-subprocess.call(['pip', 'install', '-r', 'requirement.txt'])
+subprocess.call(['pip', 'install', '-r', 'requirement.txt', '--target=/home/appuser/venv/lib/python3.9/site-packages'])
 
 st.write("""
 # Churn Prediction App
