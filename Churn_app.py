@@ -8,6 +8,7 @@ import gzip
 import dill
 import numpy as np
 
+subprocess.call(['pip', 'install', '-r', 'requirement.txt'])
 
 st.write("""
 # Churn Prediction App
